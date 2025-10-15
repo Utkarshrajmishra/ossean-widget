@@ -2,6 +2,9 @@ import { link } from "fs"
 
 const Sidebar=()=>{
     const sidebarOptions=[
+            {title:'Installation',
+            link:''
+        },
         {title:'Inbox',
             link:''
         },
@@ -19,7 +22,7 @@ const Sidebar=()=>{
         }
     ]
     return(
-        <div className="w-1/5 h-full border-r border-gray-300 p-4">
+        <div className="w-1/6 h-full border-r border-neutral-800 p-4">
             <ul className="space-y-4">
                 {sidebarOptions.map((option)=>(
                     <li key={option.title}>
