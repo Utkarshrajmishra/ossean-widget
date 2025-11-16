@@ -1,39 +1,41 @@
-import { link } from "fs"
+import { HardDriveDownload, Inbox, MessageSquareHeart } from "lucide-react";
+import Image from "next/image";
 
-const Sidebar=()=>{
-    const sidebarOptions=[
-            {title:'Installation',
-            link:''
-        },
-        {title:'Inbox',
-            link:''
-        },
-        {
-            title:'Feedback',
-            link:''
-        },
-        {
-            title:"Customize",
-            link:'',
-        },
-        {
-            title:'Customization',
-            link:''
-        }
-    ]
-    return(
-        <div className="w-1/6 h-full border-r border-neutral-800 p-4">
-            <ul className="space-y-4">
-                {sidebarOptions.map((option)=>(
-                    <li key={option.title}>
-                        <a href={option.link} className="text-gray-700 hover:text-blue-500">
-                            {option.title}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    )
-}
+const Sidebar = () => {
+  const sidebarOptions = [
+    { title: "Installation", link: "", logo:<HardDriveDownload className="size-[19px]"/> },
+    { title: "Inbox", link: "" , logo:<Inbox className="size-[19px]"/>},
+    { title: "Feedback", link: "",logo: <MessageSquareHeart className="size-[19px]"/> },
+    { title: "Customize", link: "" , logo: <MessageSquareHeart className="size-[19px]"/>},
+    { title: "Customization", link: "", logo: <MessageSquareHeart className="size-[19px]"/> },
+  ];
 
-export default Sidebar
+  return (
+    <aside className="w-[200px] h-screen border-r border-neutral-700 bg-neutral-950 flex flex-col">
+            <div className="border-b border-neutral-700 flex justify-center py-4">
+        <Image
+          src="https://assets.basehub.com/fa068a12/eh1OPrcw6Btwjs67edvOj/logo-white.svg"
+          alt="Logo"
+          height={100}
+          width={100}
+        />
+      </div>
+
+      <ul className="space-y-6 p-4">
+        {sidebarOptions.map((option) => (
+          <li key={option.title}>
+            <a
+              href={option.link}
+              className="text-[0.98rem] flex gap-2 items-center rounded-md px-3 py-1 text-zinc-400 hover:border border-neutral-600 hover:text-white hover:bg-neutral-800 transition-colors"
+            >
+                {option.logo}
+              {option.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </aside>
+  );
+};
+
+export default Sidebar;
