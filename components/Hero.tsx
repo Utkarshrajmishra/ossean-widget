@@ -3,7 +3,7 @@ import Wrapper from "./Wrapper"
 const Hero=()=>{
     return(
         <>
-          <main className="relative overflow-hidden">
+          <main className="relative font-jakarta overflow-hidden">
         <div className="relative min-h-[80vh] w-full bg-neutral-950 border-b border-neutral-800">
 <div
   className="absolute inset-0 z-0"
@@ -29,8 +29,8 @@ const Hero=()=>{
             </div>
             <div className="flex justify-center border-none   md:border-b-1 border-neutral-800">
                 <Wrapper>
-                    <div className="flex flex-col py-12 md:py-18 border-x border-neutral-800 items-center px-4">                <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center max-w-4xl lg:max-w-5xl font-[520] tracking-tight text-neutral-300"> <span className="bg-clip-text bg-gradient-to-r text-transparent from-neutral-600 to-neutral-300 to-80%"> Collect</span> and act on user <span className="bg-clip-text bg-gradient-to-l text-transparent from-neutral-600 to-neutral-300 to-80%">feedback</span>  <span className="bg-clip-text bg-gradient-to-r text-transparent from-neutral-600 to-neutral-300 to-80%"> 10x</span> <span className="bg-clip-text bg-gradient-to-l text-transparent from-neutral-600 to-neutral-300 to-80%">faster</span></p>
-                <p className="text-lg md:text-xl mt-4 max-w-2xl md:max-w-4xl  text-center text-neutral-500">Product teams rely on us to collect actionable user feedback, so they can build better and keep customers happy.</p>
+                    <div className="flex flex-col py-12 md:py-18 border-x border-neutral-800 items-center px-4">                <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-jakarta text-center max-w-4xl lg:max-w-5xl font-[520] tracking-tight text-neutral-300"> <span className="bg-clip-text bg-gradient-to-r text-transparent from-neutral-600 to-neutral-300 to-80%"> Collect</span> and act on user <span className="bg-clip-text bg-gradient-to-l text-transparent from-neutral-600 to-neutral-300 to-80%">feedback</span>  <span className="bg-clip-text bg-gradient-to-r text-transparent from-neutral-600 to-neutral-300 to-80%"> 10x</span> <span className="bg-clip-text bg-gradient-to-l text-transparent from-neutral-600 to-neutral-300 to-80%">faster</span></p>
+                <p className="text-lg md:text-xl mt-4 max-w-2xl md:max-w-4xl  text-center font-jakarta text-neutral-500">Product teams rely on us to collect actionable user feedback, so they can build better and keep customers happy.</p>
 
 </div>
 </Wrapper>
@@ -48,12 +48,12 @@ const Hero=()=>{
           </div>
 
         </div>
-      </main>
+       </main>
 
-        <section className="flex w-full justify-center">
+        <section className="flex bg-neutral-950 h-full w-full justify-center">
             <Wrapper>
               <div className="flex flex-col items-center px-4">
-                <p className="text-lg md:text-xl mt-10 max-w-2xl md:max-w-4xl text-center text-neutral-500">Most product teams struggle with vague feedback from their users.</p>
+                <p className="text-lg md:text-xl py-8 max-w-2xl md:max-w-4xl text-center text-neutral-500">Most product teams struggle with vague feedback from their users.</p>
                
                 </div>  
             </Wrapper>

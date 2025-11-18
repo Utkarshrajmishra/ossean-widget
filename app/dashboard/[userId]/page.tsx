@@ -1,9 +1,10 @@
 import Header from "@/components/dashboard/header";
 import Sidebar from "@/components/dashboard/sidebar";
+import { DownloadIcon } from "lucide-react";
 
 const Page = () => {
   return (
-    <section className="h-screen bg w-full flex">
+    <section className="h-screen font-jakarta bg w-full flex">
       <Sidebar />
 
       <div className="flex-1 flex flex-col">
@@ -12,12 +13,20 @@ const Page = () => {
         <section className="p-4 bg-gradient-to-br h-full from-[#080808] via-[#0e0b11] via-[#0e0b13] to-[#120f19]">
           <div className="flex gap-4">
             <div className="h-full flex-1 border rounded-lg border-neutral-800 bg-gradient-to-br from-neutral-900 to-neutral-950  p-4">
+              <div className="flex justify-between">
+                <div >
               <p className="text-neutral-300 text-[0.98rem] font-[570]">
                 Last 7 days
               </p>
               <p className="text-[0.9rem]  text-neutral-400 mt-1 ">
                 Feedback Summary
               </p>
+              </div>
+              <button className="cursor-pointer flex gap-1 items-center hover:bg-neutral-800 bg-transparent text-zinc-400 font-light py-0.5 h-fit px-3 rounded-md border border-neutral-700 text-[0.87rem]">
+             <DownloadIcon className="size-[14px]
+             "/>  Export 
+              </button>
+              </div>
               <div className="flex gap-4 mt-3">
                 <div className="h-full border border-neutral-800 rounded-xl w-full bg-neutral-950 p-4">
                   <div className="h-8 w-8 rounded-full bg-neutral-900 border border-neutral-800"></div>

@@ -18,7 +18,7 @@ const Header = () => {
   }
 
   return (
-    <nav className="w-full border-b sticky top-0 left-0 z-50 border-neutral-800 flex bg-transparent backdrop-blur-md h-fit justify-center px-2 md:px-0">
+    <nav className="w-full font-jakarta bg-neutral-950 border-b sticky top-0 left-0 z-50 border-neutral-800 flex  backdrop-blur-md h-fit justify-center px-2 md:px-0">
       <Wrapper>
         <header className="py-4 flex justify-between items-center">
           {/* Logo */}
