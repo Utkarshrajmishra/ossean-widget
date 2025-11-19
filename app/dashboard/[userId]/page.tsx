@@ -11,7 +11,7 @@ const Page = () => {
       <div className="flex-1 flex flex-col">
         <Header />
 
-        <section className="p-4 bg-gradient-to-br h-full from-[#080808] via-[#0e0b11] via-[#0e0b13] to-[#120f19]">
+        <section className="p-4 bg-[#080808] h-full from-[#080808] to-[#120f19]">
           <div className="flex gap-4">
             <div className="h-full flex-1 border rounded-lg border-neutral-800 bg-gradient-to-br from-neutral-900 to-neutral-950  p-4">
               <div className="flex justify-between">

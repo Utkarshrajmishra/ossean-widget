@@ -204,15 +204,15 @@ export function DataTable() {
           onChange={(event) =>
             table.getColumn("email")?.setFilterValue(event.target.value)
           }
-          className="max-w-sm bg-neutral-950 border border-neutral-800"
+          className="max-w-sm text-gray-300 bg-neutral-900 border border-neutral-800"
         />
         <DropdownMenu >
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto bg-neutral-950 border border-neutral-800 text-neutral-400 hover:text-white hover:bg-neutral-950">
+            <Button variant="outline" className="ml-auto bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-white hover:bg-neutral-950">
               Columns <ChevronDown />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="bg-neutral-950 text-neutral-400 " align="end">
+          <DropdownMenuContent className="bg-neutral-900 text-neutral-400 " align="end">
             {table
               .getAllColumns()
               .filter((column) => column.getCanHide())
@@ -233,14 +233,14 @@ export function DataTable() {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <div className="overflow-hidden mt-4 max-h-[300px] rounded-md border">
+      <div className="overflow-hidden bg-neutral-900  mt-4 max-h-[300px] rounded-md border border-neutral-800">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
+              <TableRow key={headerGroup.id} className="hover:bg-neutral-900">
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead key={header.id} className="text-neutral-200 border-b border-b-neutral-800">
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -257,6 +257,7 @@ export function DataTable() {
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow
+                  className="text-neutral-400 border-b border-b-neutral-800"
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                 >
@@ -294,6 +295,7 @@ export function DataTable() {
             size="sm"
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
+            className="bg-neutral-900 text-white border border-neutral-600"
           >
             Previous
           </Button>
@@ -302,6 +304,7 @@ export function DataTable() {
             size="sm"
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
+              className="bg-neutral-900 text-white border border-neutral-600"
           >
             Next
           </Button>

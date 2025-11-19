@@ -26,7 +26,7 @@ const Sidebar = () => {
           <li key={option.title}>
             <a
               href={option.link}
-              className="text-[0.98rem] flex gap-2 items-center rounded-md px-3 py-1 text-zinc-400 hover:border border-neutral-600 hover:text-white hover:bg-neutral-800 transition-colors"
+              className="hover:bg-neutral-800 flex items-center gap-2 cursor-pointer text-zinc-300 font-light py-2 rounded-md text-[0.98rem] px-2"
             >
                 {option.logo}
               {option.title}
