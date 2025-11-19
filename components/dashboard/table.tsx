@@ -233,14 +233,14 @@ export function DataTable() {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <div className="overflow-hidden bg-neutral-900  mt-4 max-h-[300px] rounded-md border border-neutral-800">
+      <div className="overflow-hidden bg-gradient-to-br from-neutral-900 to-neutral-950  mt-4 max-h-[300px] rounded-md border border-neutral-800">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id} className="hover:bg-neutral-900">
+              <TableRow key={headerGroup.id} className="bg-neutral-950 hover:bg-neutral-950">
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id} className="text-neutral-200 border-b border-b-neutral-800">
+                    <TableHead key={header.id} className="text-neutral-200  border-b border-b-neutral-800">
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -255,14 +255,14 @@ export function DataTable() {
           </TableHeader>
           <TableBody>
             {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
+              table.getRowModel().rows.map((row,index) => (
                 <TableRow
-                  className="text-neutral-400 border-b border-b-neutral-800"
+                  className={`text-neutral-400 ${index%2==0 ?'bg-neutral-900 hover:bg-neutral-950':'bg-transaprent hover:bg-neutral-950'} border-b border-b-neutral-800`}
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell key={cell.id} >
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
