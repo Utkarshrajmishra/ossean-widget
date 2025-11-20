@@ -5,7 +5,7 @@ import { DownloadIcon } from "lucide-react";
 
 const Page = () => {
   return (
-    <section className="  font-jakarta bg w-full flex">
+    <section className="overflow-hidden h-screen font-jakarta bg w-full flex">
       <Sidebar />
 
       <div className="flex-1 flex flex-col">
