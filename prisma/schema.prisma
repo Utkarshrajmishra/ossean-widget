@@ -12,3 +12,31 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+
+model User{
+  id: String @id @default(cuid())
+  name: String 
+  email: String @unique
+  createdAt: DateTime @default(now())
+  updatedAt: DateTime @updatedAt
+}
+
+model Project{
+  id: String @id @default(cuid())
+  name:String
+  description: String
+  createdAt: DateTime @default(now())
+  updatedAt: DateTime @updatedAt
+  Feedback: Feedback[]  @relation("Feedback")
+}
+
+model Feedback{
+  id: String @id @default(cuid())
+  name: String
+  email: String
+  message: String
+  stars: Int @default(0) @max(5)
+  createdAt: DateTime @default(now())
+  }
+
