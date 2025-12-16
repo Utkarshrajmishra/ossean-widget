@@ -1,11 +1,14 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Menu, X, LoaderCircle } from "lucide-react";
 import Wrapper from "./Wrapper";
-import { signIn } from "next-auth/react";
-
+import { signIn, useSession } from "next-auth/react";
+import { useEffect } from "react";
 const Header = () => {
+  const router=useRouter()
   const [open, setOpen] = useState(false);
+  const {data: session, status}=useSession()
   const [loading, setLoading]=useState<boolean>(false)
   const handleSignIn=async()=>{
     setLoading(true)
@@ -16,6 +19,10 @@ const Header = () => {
     setLoading(false)
     }
   }
+
+  useEffect(()=>{
+    if(status==='authenticated') router.push('/dashboard/78454')
+  },[status])
 
   return (
     <nav className="w-full font-jakarta bg-neutral-950 border-b sticky top-0 left-0 z-50 border-neutral-800 flex  backdrop-blur-md h-fit justify-center px-2 md:px-0">
@@ -73,12 +80,22 @@ const Header = () => {
                 ))}
               </div>
               <div className="flex flex-col gap-3">
+                {
+                  status==='authenticated'?
+                  <>
+                  <p>{session?.user?.name}</p>
+                  <button className="cursor-pointer bg-neutral-800 text-zinc-200 font-light py-2 rounded-full border border-neutral-700 text-[0.95rem]">
+                  Log Out
+                </button> </>:
+                  <>
                 <button onClick={handleSignIn}  className="cursor-pointer bg-neutral-800 text-zinc-200 font-light py-2 rounded-full border border-neutral-700 text-[0.95rem]">
                   Log In
                 </button>
                 <button type="submit" className="cursor-pointer bg-purple-800 py-2 font-light text-zinc-200 rounded-full border border-neutral-800 text-[0.95rem]">
                   Get started today
                 </button>
+                </>
+                }
               </div>
             </div>
           </div>
