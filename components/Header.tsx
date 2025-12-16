@@ -40,7 +40,7 @@ const Header = () => {
           </div>
 
           <div className="hidden md:flex gap-4">
-            <button onClick={handleSignIn} className="cursor-pointer bg-neutral-800 text-zinc-200 font-light py-1 px-3 rounded-full border border-neutral-700 text-[0.9rem]">
+            <button onClick={handleSignIn} className="cursor-pointer bg-neutral-800 text-zinc-200 font-light h-8 flex items-center justify-center w-18 rounded-full border border-neutral-700 text-[0.9rem]">
              {loading? <div className="animate-spin ">
               <LoaderCircle className="size-5"/>
              </div> :'Log In'}

@@ -6,6 +6,7 @@ export const authOptions={
             clientSecret: process.env.AUTH_CLIENT_SECRET!,
         })
 
-    ]
-    
+    ],
+      secret: process.env.NEXTAUTH_SECRET,
 }
+
