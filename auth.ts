@@ -1,5 +1,5 @@
 import NextAuth from "next-auth"
-import { prisma } from "./lib/prisma"
+import prisma from "./lib/prisma"
 import GoogleProvider from "next-auth/providers/google"
 import { JWT } from "next-auth/jwt"
 export const authOptions = {
@@ -41,7 +41,7 @@ export const authOptions = {
 
                 const newUser = await prisma.user.findUnique({ where: { email } })
                 if (newUser)
-                    token.id = newUser.userId
+                    token.id = newUser.id
                 return token
 
             }

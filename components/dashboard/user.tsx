@@ -5,7 +5,7 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover"
-import { useSession } from "next-auth/react"
+import { signOut, useSession } from "next-auth/react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
@@ -48,7 +48,7 @@ export function UserPopover() {
                                 <p>{session?.user?.email}</p>
                             </div>
                             <div className="flex cursor-pointer hover:text-white items-center px-2 pb-2 gap-4">
-                                <LogOut className="size-4"/> 
+                                <LogOut className="size-4" onClick={()=>signOut()}/> 
                                 <p>Logout</p>
                             </div>
                         </div>
