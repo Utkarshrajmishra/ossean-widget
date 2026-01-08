@@ -3,26 +3,27 @@ import { Button } from "./button";
 import { Textarea } from "./textarea";
 import { Popover, PopoverContent, PopoverTrigger } from "./popover";
 import { Input } from "./input";
-import tailwindStyles from "../../index.css?inline"
+import tailwindStyles from "../../index.css?inline";
 const FeedbackWidget = () => {
-  const [open, setOpen] = useState(false); // manage popover state
+  const [open, setOpen] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Feedback submitted");
-    setOpen(false); // optionally close popover after submit
+    setOpen(false);
   };
 
   return (
     <>
-    <style>{tailwindStyles}</style>
-    <div
-    className="widget fixed bottom-6 right-6">    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          variant="default"
-          size="icon"
-          className={`
+      <style>{tailwindStyles}</style>
+      <div className="widget fixed bottom-6 right-6">
+        {" "}
+        <Popover open={open} onOpenChange={setOpen}>
+          <PopoverTrigger asChild>
+            <Button
+              variant="default"
+              size="icon"
+              className={`
            
             bg-neutral-900
             cursor-pointer 
@@ -33,56 +34,56 @@ const FeedbackWidget = () => {
             transition-transform
             duration-300
           
-            ${open?'rotate-180':'rotate-268'}`
-          }
-          aria-label="Provide feedback"
-        >
-          {open ? (
-            <CrossIcon size={20} className="size-6" />
-          ) : (
-            <Icon size={20} className="size-6" />
-          )}
-        </Button>
-      </PopoverTrigger>
+            ${open ? "rotate-180" : "rotate-268"}`}
+              aria-label="Provide feedback"
+            >
+              {open ? (
+                <CrossIcon size={20} className="size-6" />
+              ) : (
+                <Icon size={20} className="size-6" />
+              )}
+            </Button>
+          </PopoverTrigger>
 
-      <PopoverContent
-        className="w-96 widget p-0 widget rounded-xl border border-gray-200 shadow-xl h-fit"
-        align="end"
-        sideOffset={8}
-      >
+          <PopoverContent
+            className="w-96 widget p-0 widget rounded-xl border border-gray-200 shadow-xl h-fit"
+            align="end"
+            sideOffset={8}
+          >
             <style>{tailwindStyles}</style>
 
-        {/* Header */}
-        <div className="bg-zinc-900/90 rounded-t-xl w-full p-6 h-fit">
-          <p className="text-zinc-50 text-lg font-medium">
-            Your feedback matters to us!
-          </p>
-          <p className="text-zinc-400">
-            Help us improve by sharing your experience
-          </p>
-        </div>
+            {/* Header */}
+            <div className="bg-zinc-900/90 rounded-t-xl w-full p-4 h-fit">
+              <p className="text-zinc-50 text-lg font-medium">
+                Your feedback matters to us!
+              </p>
+              <p className="text-sm text-zinc-400">
+                Help us improve by sharing your experience.
+              </p>
+            </div>
 
-        {/* Content */}
-        <div className="p-6">
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="space-y-4">
-              <Input
-                id="name"
-                placeholder="Your name"
-                className="h-10 bg-neutral-50 border-gray-300 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 placeholder:text-gray-400 transition-colors"
-              />
-              <Input
-                id="email"
-                placeholder="Your email"
-                className="h-10 bg-neutral-50 border-gray-300 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 placeholder:text-gray-400 transition-colors"
-              />
-              <div>
-                <Textarea
-                  id="feedback"
-                  rows={4}
-                  placeholder="Leave us your comment"
-                  className="
+            {/* Content */}
+            <div className="p-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="space-y-4">
+                  <Input
+                    id="name"
+                    placeholder="Your name"
+                    className="h-10 text-sm bg-neutral-50 border-gray-300 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 placeholder:text-gray-400 transition-colors"
+                  />
+                  <Input
+                    id="email"
+                    placeholder="Your email"
+                    className="h-10 text-sm bg-neutral-50 border-gray-300 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 placeholder:text-gray-400 transition-colors"
+                  />
+                  <div>
+                    <Textarea
+                      id="feedback"
+                      rows={4}
+                      placeholder="Leave us your comment"
+                      className="
                     w-full min-h-[100px] 
+                    text-sm
                     resize-none
                     border-gray-300
                     focus:border-zinc-900 
@@ -92,53 +93,54 @@ const FeedbackWidget = () => {
                     placeholder:text-gray-400
                     transition-colors
                   "
-                  maxLength={500}
-                />
-                <div className="text-xs text-gray-500 mt-1 text-right">
-                  Maximum 300 characters
+                      maxLength={250}
+                    />
+                    <div className="text-xs text-gray-500 mt-1 text-right">
+                      Maximum 250 characters
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
 
-            <Button
-              variant="outline"
-              className="
+                <Button
+                  variant="outline"
+                  className="
                 h-10 
+                text-sm
                 rounded-2xl 
                 w-full 
               bg-neutral-50
                 font-medium
                 transition-colors
               "
-            >
-              <Share size={12}  /> Attach a file
-            </Button>
+                >
+                  <Share size={10} /> Attach a file
+                </Button>
 
-            <Button
-              type="submit"
-              className="
+                <Button
+                  type="submit"
+                  className="
                 h-10 
                 bg-zinc-900/85 
                 rounded-2xl 
+                text-sm
                 w-full 
                 font-medium
                 transition-colors
                 hover:bg-zinc-900
               "
-            >
-              Send Feedback
-            </Button>
-          </form>
+                >
+                  Send Feedback
+                </Button>
+              </form>
 
-          <p className="text-xs text-gray-500 mt-4 text-center">
-            Built with FeedMeBack
-          </p>
-        </div>
-      </PopoverContent>
-    </Popover>
-    </div>
+              <p className="text-xs text-gray-500 mt-4 text-center">
+                Built with <span className="underline cursor-pointer text-gray-700">FeedMeBack</span>
+              </p>
+            </div>
+          </PopoverContent>
+        </Popover>
+      </div>
     </>
-
   );
 };
 
@@ -162,7 +164,13 @@ const Icon = ({ size, className }: { size: number; className?: string }) => (
 );
 
 // Cross icon
-const CrossIcon = ({ size, className }: { size: number; className?: string }) => (
+const CrossIcon = ({
+  size,
+  className,
+}: {
+  size: number;
+  className?: string;
+}) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}
