@@ -1,6 +1,34 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Host_Grotesk,
+  Sora,
+  Fasthand,
+  Plus_Jakarta_Sans,
+} from "next/font/google";
 import "./globals.css";
+
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
+  subsets: ["latin"],
+});
+
+const fasthand = Fasthand({
+  weight: "400",
+  variable: "--font-fasthand",
+  subsets: ["latin"],
+});
+
+const sora = Sora({
+  variable: "--font-sora",
+  subsets: ["latin"],
+});
+
+const hostGrotesk = Host_Grotesk({
+  variable: "--font-host-grotesk",
+  subsets: ["latin"],
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +53,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${jakarta.variable} ${geistSans.variable}
+    ${geistMono.variable}
+    ${hostGrotesk.variable}
+    ${sora.variable}
+    ${fasthand.variable} antialiased`}
       >
         {children}
       </body>
