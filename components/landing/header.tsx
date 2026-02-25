@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { Button } from "../ui/button";
+import Login from "../auth/login";
+
 const Header = () => {
   return (
     <div className="flex mt-6 justify-between h-12 items-center px-10 ">
@@ -10,7 +11,7 @@ const Header = () => {
         width={35}
         height={35}
       />
-      <Button className="font-host h-10 rounded-3xl bg-neutral-800 text-sm flex items-center justify-center">Login / Signup</Button>
+      <Login />
     </div>
   );
 };

@@ -13,7 +13,7 @@ export async function GET() {
       path: "/",
     });
 
-    const redirectUri = process.env.SCALEKIT_REDIREC!;
+    const redirectUri = process.env.SCALEKIT_REDIRECT_URL!!;
 
     const optons = {
       scopes: ["openid", "profile", "email", "offline_access"],

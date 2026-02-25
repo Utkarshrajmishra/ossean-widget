@@ -30,7 +30,7 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const redirectUri = process.env.Scale!;
+    const redirectUri = process.env.SCALEKIT_REDIRECT_URL!;
     const authResult = await scaleKit.authenticateWithCode(code, redirectUri);
     const { user, idToken } = authResult;
 
@@ -84,14 +84,7 @@ export async function GET(req: NextRequest) {
       {
         error: "Failed to authenticate user",
       },
-      { status: 401 
-
-
-
-
-
-        
-      },
+      { status: 401 },
     );
   }
 }
