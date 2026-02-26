@@ -106,7 +106,7 @@ export const feedback = pgTable(
     message: text("message").notNull(),
 
     rating: integer("rating").notNull().default(0),
-
+    image_Url: text("image_url"),
     created_at: timestamp("created_at").default(sql`now()`),
   },
   (table) => ({

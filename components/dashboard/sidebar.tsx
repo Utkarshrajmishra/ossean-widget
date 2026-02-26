@@ -12,11 +12,11 @@ const Sidebar=()=>{
                 sidebar?.map((item, index)=>(
                     <Tooltip key={index}>
                         <TooltipTrigger asChild>
-                    <div className="h-10 w-10   flex items-center justify-center border rounded-md border-1.5 border-neutral-400">
+                    <div className="h-10 w-10   flex items-center justify-center border rounded-md border-1.5 bg-neutral-100 border-neutral-300">
                        {item.icon}
                     </div>
                     </TooltipTrigger>
-                    <TooltipContent className="bg-neutral-500/90">
+                    <TooltipContent className="bg-neutral-500/90 font-sans">
                         <p>{item.title}</p>
                     </TooltipContent>
                     </Tooltip>
