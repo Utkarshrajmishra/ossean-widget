@@ -15,19 +15,16 @@ const useOrganization = create<OrganizationState>()(
       organization_id: "",
       project_id: "",
 
-      setOrganization: (id) =>
-        set({ organization_id: id }),
+      setOrganization: (id: string) => set({ organization_id: id }),
 
-      setProjectId: (id) =>
-        set({ project_id: id }),
+      setProjectId: (id: string) => set({ project_id: id }),
 
-      removeAll: () =>
-        set({ organization_id: "", project_id: "" }),
+      removeAll: () => set({ organization_id: "", project_id: "" }),
     }),
     {
-      name: "organization-storage", 
-    }
-  )
+      name: "organization-storage",
+    },
+  ),
 );
 
 export default useOrganization;
