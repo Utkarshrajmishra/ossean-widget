@@ -25,7 +25,7 @@ export async function POST(req: Request) {
       image_url,
     } = body;
 
-    if (!project_key && !message && !name && !email && !organization_id) {
+    if (!project_key || !message || !name || !email || !organization_id) {
       return new Response(
         JSON.stringify({ error: "Missing required fields" }),
         { status: 400, headers: corsHeaders },
