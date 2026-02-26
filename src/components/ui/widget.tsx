@@ -49,7 +49,7 @@ const FeedbackWidget = () => {
           >
             <style>{tailwindStyles}</style>
             {menu === 0 && (
-              <section className="flex flex-col gap-6  justify-center">
+              <section className="flex flex-col gap-3  justify-center">
                 {Menu?.map((item) => (
                   <div
                     onClick={() => setMenu(item.id)}
