@@ -14,14 +14,26 @@ import {
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useActionState } from "react";
+import { cn } from "@/lib/utils";
+import { useActionState, useEffect, useState } from "react";
 
 const AddProjectDialog = () => {
+ const [loading, setLoading]=useState<boolean>(false)
   const [state, action, pending] = useActionState(formAction, {
     values: { name: "", url: "" },
     message: {},
-    success:false
+    success: false,
   });
+
+  useEffect(() => {
+    if (state.success) {
+      createProject();
+    }
+  }, [state.success]);
+
+  const createProject = () => {
+    console.log("Hello World");
+  };
 
   return (
     <Dialog>
@@ -29,18 +41,19 @@ const AddProjectDialog = () => {
         <Button variant="outline">Open Dialog</Button>
       </DialogTrigger>
 
-      <DialogContent className="w-[350px] font-sans border border-neutral-300">
-        <form action={action}>
+      <DialogContent className="w-[350px] p-4.5 font-sans border border-neutral-300">
+        <form action={action} className="flex flex-col gap-4">
           <DialogHeader>
             <DialogTitle className="text-neutral-700">Add Website</DialogTitle>
             <DialogDescription>
-              Add your website name and URL here.
+              Add your website name and URL here. Click save when you're done.
             </DialogDescription>
           </DialogHeader>
 
-          <FieldGroup className="gap-5">
+          <FieldGroup className="gap-4">
             <Field className="gap-1.5">
               <Label htmlFor="name">Website Name</Label>
+              <div>
               <Input
                 id="name"
                 name="name"
@@ -50,19 +63,22 @@ const AddProjectDialog = () => {
               {state?.message?.name && (
                 <p className="text-sm text-red-500">{state.message.name[0]}</p>
               )}
+              </div>
             </Field>
 
             <Field className="gap-1.5">
               <Label htmlFor="url">Website URL</Label>
+              <div>
               <Input
                 id="url"
-                name="url" // ✅ FIXED
+                name="url" 
                 placeholder="https://acme.com"
                 defaultValue={state?.values?.url}
               />
               {state?.message?.url && (
                 <p className="text-sm text-red-500">{state.message.url[0]}</p>
               )}
+              </div>
             </Field>
           </FieldGroup>
 

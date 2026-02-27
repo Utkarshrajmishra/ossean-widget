@@ -1,7 +1,10 @@
 import Image from "next/image";
 import Login from "../auth/login";
+import { getUserSession } from "@/lib/isAuthorized";
 
-const Header = () => {
+const Header = async () => {
+  const user = await getUserSession();
+  console.log(user);
   return (
     <div className="flex mt-6 justify-between h-12 items-center px-10 ">
       <p className="font-fasthand text-3xl">Catchup</p>

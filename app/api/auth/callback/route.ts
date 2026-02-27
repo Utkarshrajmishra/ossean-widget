@@ -50,7 +50,7 @@ export async function GET(req: NextRequest) {
         { status: 500 },
       );
     }
-
+    let signUp = false;
     const existing = await db
       .select()
       .from(User)
@@ -62,6 +62,7 @@ export async function GET(req: NextRequest) {
         email: user.email,
         organization_id: organizationId,
       });
+      signUp = true;
     }
 
     const response = NextResponse.redirect(new URL("/", req.url));
@@ -78,11 +79,13 @@ export async function GET(req: NextRequest) {
       maxAge: 60 * 60 * 24 * 7,
     });
 
+    return NextResponse.redirect(new URL("/dashboard", req.url));
+
     return response;
   } catch (error) {
     return NextResponse.json(
       {
-        error: "Failed to authenticate user",
+        error: error,
       },
       { status: 401 },
     );

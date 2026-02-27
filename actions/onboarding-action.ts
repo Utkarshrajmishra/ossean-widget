@@ -1,7 +1,7 @@
 "use server";
 import { z } from "zod";
 
-export const initialProjectState = {
+const initialProjectState = {
   name: "",
   url: "",
 };
@@ -17,33 +17,31 @@ interface FormState {
     name: string;
     url: string;
   };
-  success:boolean
+  success: boolean;
 }
 
-export const formAction = async (
+export async function formAction(
   prevState: FormState,
   formData: FormData,
-): Promise<FormState> => {
+): Promise<FormState> {
   const dataToValidate = Object.fromEntries(formData.entries());
   const validation = schema.safeParse(dataToValidate);
-if (!validation.success) {
+  if (!validation.success) {
     return {
       message: validation.error.flatten().fieldErrors,
       values: {
         name: String(dataToValidate.name || ""),
         url: String(dataToValidate.url || ""),
       },
-      success:false
+      success: false,
     };
   }
 
-  
   const values = validation.data;
 
   return {
     message: undefined,
     values,
-    success:true
+    success: true,
   };
 }
-

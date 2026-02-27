@@ -10,21 +10,7 @@ import {
 } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
 
-export const organization = pgTable("organization", {
-  id: uuid("id")
-    .primaryKey()
-    .default(sql`gen_random_uuid()`),
 
-  name: text("name").notNull(),
-
-  created_at: timestamp("created_at").default(sql`now()`),
-});
-
-export const organizationRelations = relations(organization, ({ many }) => ({
-  users: many(user),
-  projects: many(project),
-  feedbacks: many(feedback),
-}));
 
 export const user = pgTable(
   "user",
@@ -33,9 +19,7 @@ export const user = pgTable(
       .primaryKey()
       .default(sql`gen_random_uuid()`),
 
-    organization_id: uuid("organization_id")
-      .notNull()
-      .references(() => organization.id, { onDelete: "cascade" }),
+    organization_id: text("organization_id").notNull(),
 
     name: text("name"),
     email: text("email").notNull().unique(),
@@ -45,15 +29,10 @@ export const user = pgTable(
   },
   (table) => ({
     orgIndex: index("user_organization_idx").on(table.organization_id),
-  }),
+  })
 );
 
-export const userRelations = relations(user, ({ one }) => ({
-  organization: one(organization, {
-    fields: [user.organization_id],
-    references: [organization.id],
-  }),
-}));
+
 
 export const project = pgTable(
   "project",
@@ -62,9 +41,7 @@ export const project = pgTable(
       .primaryKey()
       .default(sql`gen_random_uuid()`),
 
-    organization_id: uuid("organization_id")
-      .notNull()
-      .references(() => organization.id, { onDelete: "cascade" }),
+    organization_id: text("organization_id").notNull(),
 
     websiteLink: text("website").notNull(),
     name: text("name").notNull(),
@@ -73,17 +50,15 @@ export const project = pgTable(
   },
   (table) => ({
     orgIndex: index("project_organization_idx").on(table.organization_id),
-  }),
+  })
 );
 
-export const projectRelations = relations(project, ({ one, many }) => ({
-  organization: one(organization, {
-    fields: [project.organization_id],
-    references: [organization.id],
-  }),
+export const projectRelations = relations(project, ({ many, one }) => ({
   feedbacks: many(feedback),
   theme: one(widgetTheme),
 }));
+
+
 
 export const feedback = pgTable(
   "feedback",
@@ -92,9 +67,7 @@ export const feedback = pgTable(
       .primaryKey()
       .default(sql`gen_random_uuid()`),
 
-    organization_id: uuid("organization_id")
-      .notNull()
-      .references(() => organization.id, { onDelete: "cascade" }),
+    organization_id: text("organization_id").notNull(),
 
     project_id: uuid("project_id")
       .notNull()
@@ -106,25 +79,23 @@ export const feedback = pgTable(
     message: text("message").notNull(),
 
     rating: integer("rating").notNull().default(0),
-    image_Url: text("image_url"),
+    image_url: text("image_url"),
+
     created_at: timestamp("created_at").default(sql`now()`),
   },
   (table) => ({
     orgIndex: index("feedback_organization_idx").on(table.organization_id),
     projectIndex: index("feedback_project_idx").on(table.project_id),
-  }),
+  })
 );
 
 export const feedbackRelations = relations(feedback, ({ one }) => ({
-  organization: one(organization, {
-    fields: [feedback.organization_id],
-    references: [organization.id],
-  }),
   project: one(project, {
     fields: [feedback.project_id],
     references: [project.id],
   }),
 }));
+
 
 export const widgetTheme = pgTable(
   "widget_theme",
@@ -151,8 +122,8 @@ export const widgetTheme = pgTable(
     created_at: timestamp("created_at").default(sql`now()`),
   },
   (table) => ({
-    projectIndex: index("widget_project_idx").on(table.project_id), // ✅ indexed widget id
-  }),
+    projectIndex: index("widget_project_idx").on(table.project_id),
+  })
 );
 
 export const widgetThemeRelations = relations(widgetTheme, ({ one }) => ({
