@@ -58,7 +58,7 @@ export async function GET(req: NextRequest) {
 
     if (existing.length === 0) {
       let name = user?.name || "anonmymous";
-      name = name.replaceAll("", "+");
+      name = name.replaceAll(" ", "+");
 
       await db.insert(User).values({
         name: user?.name || "anonmymous",

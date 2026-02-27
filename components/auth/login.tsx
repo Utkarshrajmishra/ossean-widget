@@ -2,12 +2,16 @@
 
 import { LoaderCircle } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { Button } from "../ui/button";
+import useUser from "@/store/user-store";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
 
+  const setUser=useUser((state)=>state.setUser)
+
+  
   return (
     <Link href="/api/auth" onClick={()=>setLoading(true)}>
       <Button disabled={loading} className="font-host h-10  rounded-3xl bg-neutral-800 text-sm flex items-center justify-center">

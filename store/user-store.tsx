@@ -26,3 +26,5 @@ const useUser = create<UserState>()(
     },
   ),
 );
+
+export default useUser
