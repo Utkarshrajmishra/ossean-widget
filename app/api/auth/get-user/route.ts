@@ -19,7 +19,7 @@ export async function GET() {
       .from(User)
       .where(eq(User.organization_id, user?.organization_id));
 
-    return NextResponse.json({ data: userInfo }, { status: 500 });
+    return NextResponse.json({ data: userInfo }, { status: 200 });
   } catch (error) {
     return NextResponse.json(
       { error: "Something went wrong!" },

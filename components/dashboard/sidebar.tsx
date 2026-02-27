@@ -2,12 +2,24 @@ import Image from "next/image";
 import { sidebar } from "@/config/sidebar";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 import Logout from "../auth/logout";
-
+import { projects } from "@/config/sidebar";
 const Sidebar = () => {
   return (
     <section className="h-screen border-r  py-6 border-neutral-300 bg-neutral-50 w-[80px] flex flex-col justify-between items-center ">
-      <section className="flex flex-col gap-5">
+      <section className="flex flex-col items-center gap-5">
         <Image src="/black-logo.svg" alt="Logo" height={40} width={40} />
+        
+          <Tooltip >
+              <TooltipTrigger asChild>
+                <div className="h-10 w-10   flex items-center justify-center border rounded-md border-1.5 bg-neutral-100 border-neutral-300">
+                  {projects[0].icon}
+                </div>
+              </TooltipTrigger>
+              <TooltipContent className="bg-neutral-500/90 font-sans">
+                <p>{projects[0].title}</p>
+              </TooltipContent>
+            </Tooltip>
+            
         <section className=" flex flex-col gap-5">
           {sidebar?.map((item, index) => (
             <Tooltip key={index}>
