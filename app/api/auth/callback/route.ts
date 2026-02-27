@@ -35,7 +35,7 @@ export async function GET(req: NextRequest) {
     const { user, idToken } = authResult;
 
     const claims = await scaleKit.validateToken(idToken);
-
+    console.log(claims);
     const organizationId =
       (claims as any).organization_id ||
       (claims as any).oid ||
@@ -57,10 +57,14 @@ export async function GET(req: NextRequest) {
       .where(eq(User.email, user.email));
 
     if (existing.length === 0) {
+      let name = user?.name || "anonmymous";
+      name = name.replaceAll("", "+");
+
       await db.insert(User).values({
         name: user?.name || "anonmymous",
         email: user.email,
         organization_id: organizationId,
+        image: `https://ui-avatars.com/api/?name=${name}&background=0D8ABC&color=fff`,
       });
       signUp = true;
     }
