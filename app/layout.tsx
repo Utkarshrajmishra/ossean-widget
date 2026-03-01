@@ -53,7 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${jakarta.variable} ${geistSans.variable}
+        className={`${jakarta.variable}  ${geistSans.variable}
     ${geistMono.variable}
     ${hostGrotesk.variable}
     ${sora.variable}

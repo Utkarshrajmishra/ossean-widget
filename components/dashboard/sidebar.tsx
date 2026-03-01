@@ -1,43 +1,21 @@
+import { Plus } from "lucide-react";
 import Image from "next/image";
-import { sidebar } from "@/config/sidebar";
-import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
-import Logout from "../auth/logout";
-import { projects } from "@/config/sidebar";
+
 const Sidebar = () => {
   return (
-    <section className="h-screen border-r  py-6 border-neutral-300 bg-neutral-50 w-[80px] flex flex-col justify-between items-center ">
-      <section className="flex flex-col items-center gap-5">
-        <Image src="/black-logo.svg" alt="Logo" height={40} width={40} />
-        
-          <Tooltip >
-              <TooltipTrigger asChild>
-                <div className="h-10 w-10   flex items-center justify-center border rounded-md border-1.5 bg-neutral-100 border-neutral-300">
-                  {projects[0].icon}
-                </div>
-              </TooltipTrigger>
-              <TooltipContent className="bg-neutral-500/90 font-sans">
-                <p>{projects[0].title}</p>
-              </TooltipContent>
-            </Tooltip>
-            
-        <section className=" flex flex-col gap-5">
-          {sidebar?.map((item, index) => (
-            <Tooltip key={index}>
-              <TooltipTrigger asChild>
-                <div className="h-10 w-10   flex items-center justify-center border rounded-md border-1.5 bg-neutral-100 border-neutral-300">
-                  {item.icon}
-                </div>
-              </TooltipTrigger>
-              <TooltipContent className="bg-neutral-500/90 font-sans">
-                <p>{item.title}</p>
-              </TooltipContent>
-            </Tooltip>
-          ))}
-        </section>
-      </section>
-      <section className="gap-4 flex flex-col">
-        <Logout />
-      </section>
+    <section className="h-screen flex flex-col items-center gap-4 w-[50px] bg-neutral-100 py-4 border-r border-neutral-300">
+      <Image
+        src="https://cdn.prod.website-files.com/684d582f1c52bdf38cbb5c8d/6853cb664f26aa121f574c6e_qatchup-logo.svg"
+        alt="Logo"
+        width={28}
+        height={28}
+      />
+
+      <div className="border-b border-neutral-300 w-full" />
+
+      <div className="p-2 bg-neutral-900 rounded-md cursor-pointer hover:bg-neutral-800 transition">
+        <Plus className="text-white w-4 h-4" />
+      </div>
     </section>
   );
 };

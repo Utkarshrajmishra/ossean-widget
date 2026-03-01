@@ -13,6 +13,7 @@
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
+    "@hugeicons/core-free-icons": "^3.3.0",
     "@neondatabase/serverless": "^1.0.2",
     "@scalekit-sdk/node": "^2.2.2",
     "class-variance-authority": "^0.7.1",

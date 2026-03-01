@@ -17,7 +17,7 @@ const Hero = () => {
 
       <Wrapper className="w-full  relative flex flex-col items-center text-center">
 
-        <p className="text-4xl font-fasthand text-neutral-400">Listen!</p>
+        <p className="text-5xl font-fasthand text-neutral-400">Listen!</p>
 
         <h1 className="font-jakarta mt-6 tracking-tight  font-[550] text-neutral-800 text-6xl">
           Your Customers Have Opinions. <br />

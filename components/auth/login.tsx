@@ -14,7 +14,7 @@ const Login = () => {
 
   return (
     <Link href="/api/auth" onClick={()=>setLoading(true)}>
-      <Button disabled={loading} className="font-host h-10  rounded-3xl bg-neutral-800 text-sm flex items-center justify-center">
+      <Button disabled={loading} className="font-host h-10  rounded-3xl bg-orange-500 text-sm flex items-center justify-center">
         Login / Signup {loading && <span className="animate-spin"><LoaderCircle className="size-4 "/></span>}
       </Button>
     </Link>

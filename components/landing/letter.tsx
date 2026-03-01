@@ -4,14 +4,14 @@ const Letter = () => {
   return (
     <section className="flex justify-center">
       <Wrapper className="mt-48">
-         <p className="text-4xl font-fasthand text-neutral-400">
+         <p className="text-4xl font-fasthand text-orange-500">
               Open Letter
             </p>
         <section className="flex mt-2">
           <div className="w-[50%]">
            
             <p className="text-5xl mt-2 font-light font-sans text-neutral-500">
-              <span className="font-host text-neutral-800 font-[550]">
+              <span className="font-host text-oragne-800 font-[550]">
                 {" "}
                 Hey Startup Owner!{" "}
               </span>
