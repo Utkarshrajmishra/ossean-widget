@@ -9,9 +9,8 @@ const SidebarMenu = () => {
   const [menu, setMenu] = useState(0)
 
   return (
-    <section className="h-screen w-[210px] flex flex-col gap-3 px-3 py-4 bg-white border-r border-neutral-300 font-sans">
+    <section className="h-screen w-[280px] flex flex-col gap-3 px-3 py-4 bg-white border-r border-neutral-300 font-sans">
       
-      <p className="font-fasthand text-2xl text-neutral-700">Catchup Dashboard</p>
       
       <div>
         <p className="text-xs text-neutral-600">Project</p>
