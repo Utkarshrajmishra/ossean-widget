@@ -1,48 +1,43 @@
 "use client"
-
-import { sidebar } from "@/config/sidebar"
-import { useState } from "react"
-import { cn } from "@/lib/utils"
-import { ChevronDown } from "lucide-react"
-
+import { sidebar } from "@/config/sidebar";
+import { ChevronDown } from "lucide-react";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
 const SidebarMenu = () => {
-  const [menu, setMenu] = useState(0)
-
+  const [menu, setMenu]=useState(0)
   return (
-    <section className="h-screen w-[280px] flex flex-col gap-3 px-3 py-4 bg-white border-r border-neutral-300 font-sans">
-      
-      
-      <div>
-        <p className="text-xs text-neutral-600">Project</p>
-        <div className="mt-1 py-2 px-2 flex justify-between items-center bg-neutral-50 border border-neutral-300 rounded-md cursor-pointer">
-          <p className="text-sm text-neutral-700">Buttonflux</p>
-          <ChevronDown className="text-neutral-700 w-4 h-4" />
+    <section className="w-[220px] justify-between  gap-4 flex flex-col py-3 font-sans border-r border-neutral-700">
+      <div className="flex flex-col px-3 gap-3">
+        <div>
+          <p className="text-xs text-neutral-400">Projects</p>
+          <div className=" bg-neutral-800 flex justify-between items-center p-2 mt-2 rounded-sm border border-neutral-700">
+            <p className="text-sm text-neutral-300">Peerlist</p>
+            <ChevronDown className="text-neutral-300 size-3" />
+          </div>
+        </div>
+        <div>
+          <p className="text-xs text-neutral-400">Menu</p>
+          <div className="flex flex-col gap-3 mt-2">
+            {sidebar?.map((item, index) => (
+              <div className={cn(" hover:bg-neutral-800 rounded-sm items-center p-2 flex gap-2", menu===index? 'text-neutral-400 bg-neutral-800 border border-neutral-700':'text-neutral-500 ')}>
+                <item.icon className="size-4.5 " />
+                <p className="text-sm ">{item.title}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Menu Section */}
-      <div>
-        <p className="text-xs text-neutral-600">Menu</p>
-
-        <div className="flex flex-col gap-1 mt-1">
-          {sidebar?.map((item, idx) => (
-            <div
-              key={idx}
-              onClick={() => setMenu(idx)}
-              className={cn(
-                "flex items-center gap-2 px-2 py-2 rounded-md cursor-pointer hover:bg-neutral-50 transition-colors",
-                idx === menu && "border border-neutral-300 bg-neutral-50"
-              )}
-            >
-              <item.icon className="text-neutral-700 w-4 h-4" />
-              <p className="text-sm text-neutral-700">{item.title}</p>
-            </div>
-          ))}
+      <div className="h-18 gap-3 w-full flex items-center justify-center border-t border-neutral-700">
+        <div className="h-12 w-12 bg-neutral-950 rounded-full"></div>
+        <div className="text-sm text-neutral-300">
+         
+          <p>Utkarsh Raj Mishra</p>
+          <p className="text-neutral-500">Admin</p>
         </div>
       </div>
-
     </section>
-  )
-}
+  );
+};
 
-export default SidebarMenu
+export default SidebarMenu;

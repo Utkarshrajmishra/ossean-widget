@@ -1,14 +1,11 @@
 import Sidebar from "@/components/dashboard/sidebar";
 import SidebarMenu from "@/components/dashboard/sidebar-menu";
-import Home from "@/components/dashboard/dashboard";
+
 const Dashboard = () => {
   return (
-    <section className="h-screen  font-sans  flex w-screen overflow-hidden bg-white">
-     <Sidebar/>
-      <SidebarMenu />
-      <div className="w-full">
-      <Home/>
-      </div>
+    <section className="bg-neutral-900 min-h-screen w-full flex ">
+       <Sidebar/> 
+       <SidebarMenu/>
     </section>
   );
 };
