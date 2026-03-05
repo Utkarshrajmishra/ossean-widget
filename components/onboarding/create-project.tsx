@@ -14,10 +14,16 @@ import {
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { cn } from "@/lib/utils";
 import { useActionState, useEffect, useState } from "react";
 
-const AddProjectDialog = () => {
+
+interface AddProjectDialogProps{
+  openAddProject: boolean;
+   setOpenAddProject: (flag: boolean)=>void
+}
+
+
+const AddProjectDialog = ({openAddProject, setOpenAddProject}: AddProjectDialogProps) => {
  const [loading, setLoading]=useState<boolean>(false)
   const [state, action, pending] = useActionState(formAction, {
     values: { name: "", url: "" },
@@ -36,10 +42,8 @@ const AddProjectDialog = () => {
   };
 
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Open Dialog</Button>
-      </DialogTrigger>
+    <Dialog open={openAddProject} onOpenChange={setOpenAddProject}>
+      
 
       <DialogContent className="w-[350px] p-4.5 font-sans border border-neutral-300">
         <form action={action} className="flex flex-col gap-4">

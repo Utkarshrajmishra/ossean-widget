@@ -7,7 +7,7 @@ const Pattern = ({ className, color }: PatternProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 480 800"
+      viewBox="0 0 100 800"
       preserveAspectRatio="none"
       className={`${className}`}
     >
