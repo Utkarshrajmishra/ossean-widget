@@ -7,6 +7,9 @@ const Dashboard = () => {
     <section className="bg-white min-h-screen w-full flex ">
      <Sidebar/>
     <SidebarMenu/>
+    <div className="w-full">
+      <Home/>
+    </div>
     </section>
   );
 };
