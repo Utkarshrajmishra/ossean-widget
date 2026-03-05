@@ -18,8 +18,8 @@ const dashboard = [
 
 const Home = () => {
   return (
-    <section className="flex font-sans justify-center p-4 w-full">
-      <section className="flex gap-4 max-w-7xl w-full  p-4">
+    <section className="flex font-sans justify-center w-full">
+      <section className="flex gap-4 max-w-7xl w-full ">
         {dashboard.map((item) => (
           <div
             key={item.id}
